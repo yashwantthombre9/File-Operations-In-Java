@@ -1,0 +1,29 @@
+package File.Operation;
+import java.io.*;
+public class FileOperation {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+		File newFile = new File("C:/Users/User/Desktop/NewFile.txt");
+	    FileOutputStream fout = new FileOutputStream(newFile);
+	    
+	    ObjectOutputStream ofout = new ObjectOutputStream(fout);
+	    
+	    Save obj = new Save();
+	    obj.i = 10;
+	    
+	    ofout.writeObject(obj);
+	    
+	    
+	    FileInputStream fin = new FileInputStream(newFile);
+	    ObjectInputStream ofin = new ObjectInputStream(fin);
+	  Save obj1 =   (Save) ofin.readObject();
+	  System.out.println(obj1.i);
+	}
+
+}
+
+class Save implements Serializable{
+	int i;
+}
