@@ -12,6 +12,7 @@ public class FileOperation {
 	    
 	    Save obj = new Save();
 	    obj.i = 10;
+        obj.j = 20;
 	    
 	    ofout.writeObject(obj);
 	    
@@ -19,11 +20,12 @@ public class FileOperation {
 	    FileInputStream fin = new FileInputStream(newFile);
 	    ObjectInputStream ofin = new ObjectInputStream(fin);
 	  Save obj1 =   (Save) ofin.readObject();
-	  System.out.println(obj1.i);
+	  System.out.println(obj1.i+" "+obj1.j);
 	}
 
 }
 
 class Save implements Serializable{
 	int i;
+    int j;
 }
